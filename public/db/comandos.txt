@@ -1,0 +1,1062 @@
+use webmaker;
+
+db.createCollection('usuarios');
+db.createCollection('membresias');
+db.createCollection('tarjetas');
+db.createCollection('proyectos');
+db.createCollection('compartidos');
+
+
+db.usuarios.insertMany([
+{
+    "_id" : ObjectId("5ccb852674b526acc53679b4"),
+    "nombre" : "Alexis", 
+    "apellido" : "Madrid", 
+    "nombreUsuario" : "alexis.madrid", 
+    "correo" : "alexemadrid@hotmail.com", 
+    "contrasena" : "asd.123", 
+    "genero" : "Masculino", 
+    "fechaNacimiento" : "26/09/1995", 
+    "foto" : "img-51.jpg",
+    "proyectos" : [
+        ObjectId("5ccb889b74b526acc53679bb"),
+        ObjectId("5ccb889b74b526acc53679bd"),
+        ObjectId("5ccb889b74b526acc53679be")
+    ],
+    "membresia" : ObjectId("5ccb839374b526acc53679b0"),
+    "tarjeta" : ObjectId("5ccb84a674b526acc53679b3")
+},
+{
+    "_id" : ObjectId("5ccb852674b526acc53679b5"),
+    "nombre" : "Francisco", 
+    "apellido" : "Madrid", 
+    "nombreUsuario" : "francisco.madrid", 
+    "correo" : "famt@gmail.com", 
+    "contrasena" : "123.asd", 
+    "genero" : "Masculino", 
+    "fechaNacimiento" : "21/09/1999", 
+    "foto" : "img-50.jpg",
+    "proyectos" : [
+        ObjectId("5ccb889b74b526acc53679bc") 
+    ],
+    "membresia" : ObjectId("5ccb839374b526acc53679b1"),
+    "tarjeta" : ObjectId("5ccb86a374b526acc53679b8")
+},
+{
+    "_id" : ObjectId("5ccb852674b526acc53679b6"),
+    "nombre" : "Teffy", 
+    "apellido" : "Aguilar", 
+    "nombreUsuario" : "teffy.aguilar", 
+    "correo" : "teffyA@hotmail.com", 
+    "contrasena" : "asd.456", 
+    "genero" : "Femenino", 
+    "fechaNacimiento" : "16/04/2000", 
+    "foto" : "img-52.jpg",
+    "proyectos" : [    
+    ],
+    "membresia" : ObjectId("5ccb839374b526acc53679b2"),
+    "tarjeta" : ObjectId("5ccb86a374b526acc53679b9")
+},
+{
+    "_id" : ObjectId("5ccb852674b526acc53679b7"),
+    "nombre" : "Yoo", 
+    "apellido" : "Kim", 
+    "nombreUsuario" : "you_r_love", 
+    "correo" : "kimyoo@gmail.com", 
+    "contrasena" : "456.asd", 
+    "genero" : "Femenino", 
+    "fechaNacimiento" : "01/07/1980", 
+    "foto" : "img-53.jpg",
+    "proyectos" : [
+        ObjectId("5ccb889b74b526acc53679bf") 
+    ],
+    "membresia" : ObjectId("5ccb839374b526acc53679b0"),
+    "tarjeta" : ObjectId("5ccb86a374b526acc53679ba")
+}
+]);
+
+
+
+db.membresias.insertMany([
+{
+    "_id" : ObjectId("5ccb839374b526acc53679b0"),
+    "tipoMembresia" : "Free", 
+    "precio" : 0, 
+    "almacenamiento" : "10 GB", 
+    "fechaInicio" : "06/04/2019", 
+    "usuarios" : [
+        ObjectId("5ccb852674b526acc53679b4"),
+        ObjectId("5ccb852674b526acc53679b7")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb839374b526acc53679b1"),
+    "tipoMembresia" : "Premium", 
+    "precio" :  30, 
+    "almacenamiento" : "50 GB", 
+    "fechaInicio" : "06/06/2020", 
+    "usuarios" : [
+        ObjectId("5ccb852674b526acc53679b5")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb839374b526acc53679b2"),
+    "tipoMembresia":  "Pro", 
+    "precio" :  50, 
+    "almacenamiento" : "ilimitado", 
+    "fechaInicio" : "10/10/2022", 
+    "usuarios" : [
+        ObjectId("5ccb852674b526acc53679b6")
+    ]
+}
+]);
+
+
+
+db.tarjetas.insertMany([
+{
+    "_id" : ObjectId("5ccb84a674b526acc53679b3"),
+    "propietario" : ObjectId("5ccb852674b526acc53679b4"),
+    "numeroTarjeta" : "1223 3457 8564 8947",
+    "ccv" : "123", 
+    "fechaVencimiento" : "01/01/2001"
+},
+{
+    "_id" : ObjectId("5ccb86a374b526acc53679b8"),
+    "propietario" : ObjectId("5ccb852674b526acc53679b5"),
+    "numeroTarjeta" : "2233 4567 1927 7462",
+    "ccv" : "123", 
+    "fechaVencimiento" : "03/03/2003"
+},
+{
+    "_id" : ObjectId("5ccb86a374b526acc53679b9"),
+    "propietario" : ObjectId("5ccb852674b526acc53679b6"),
+    "numeroTarjeta" : "3213 8371 4938 1345",
+    "ccv" : "345", 
+    "fechaVencimiento" : "01/02/2009"
+},
+{
+    "_id" : ObjectId("5ccb86a374b526acc53679ba"),
+    "propietario" : ObjectId("5ccb852674b526acc53679b7"),
+    "numeroTarjeta" : "1223 8725 7372 1238",
+    "ccv" : "123", 
+    "fechaVencimiento" : "02/01/2001"
+}
+]);
+
+
+
+
+db.proyectos.insertMany([
+{
+    "_id" : ObjectId("5ccb889b74b526acc53679bb"),
+    "nombre" : "Desarrollo web", 
+    "descripcion" : "Este es el proyecto de experto uwu", 
+    "fecha" : "06/06/6666", 
+    "tamano" : "50 MB",
+    "contenido" : [
+        {
+            "nombre" : "public",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "css",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "estilos",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum?"
+                        },
+                        {
+                            "nombre" : "bootstrap.min",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "img",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "img-01",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-02",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-03",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-04",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                    ]
+                },
+                {
+                    "nombre" : "js",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "controlador",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum asperiores, architecto maxime unde nihil, tenetur accusamus ratione doloremque, voluptates ab expedita voluptas ad? Quasi sequi quod ratione alias sapiente? Sapiente labore quidem voluptas tempora aliquid voluptatum similique repudiandae, libero dolores veniam dignissimos accusamus iure ipsum nobis facere. Minima, quis praesentium."
+                        },
+                        {
+                            "nombre" : "jquery-3.3.1",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "index",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "login",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "principal", 
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "registro",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                }
+            ]
+        },
+        {
+            "nombre" : "router",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "usuario-router",
+                    "tipo" : "archivo",
+                    "extension" : "js",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "proyecto-router",
+                    "tipo" : "archivo",
+                    "extension" : "js",
+                    "contenido" : "Lorem ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "nombre" : "index",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit voluptate mnis repellat!"
+        },
+        {
+            "nombre" : "package-lock",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        }
+    ],
+    "usuario" : ObjectId("5ccb852674b526acc53679b4"),
+    "compartidos" : [
+        ObjectId("5ccb852674b526acc53679b4"),
+        ObjectId("5ccb852674b526acc53679b7")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb889b74b526acc53679bc"),
+    "nombre" : "Industria del Software", 
+    "descripcion" : "Este es el proyecto de Industria", 
+    "fecha" : "02/01/1900", 
+    "tamano" : "100 MB",
+    "contenido" : [
+        {
+            "nombre" : "public",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "css",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "estilos",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "bootstrap.min",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "img",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "img-01",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-02",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-03",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-04",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                    ]
+                },
+                {
+                    "nombre" : "js",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "controlador",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "jquery-3.3.1",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "index",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "login",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "principal", 
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "registro",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                }
+            ]
+        },
+        {
+            "nombre" : "index",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package-lock",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        }
+    ],
+    "usuario" : ObjectId("5ccb852674b526acc53679b5"),
+    "compartidos" : [
+        ObjectId("5ccb852674b526acc53679b5"),
+        ObjectId("5ccb852674b526acc53679b6")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb889b74b526acc53679bd"),
+    "nombre" : "Ingenieria en Software", 
+    "descripcion" : "Este es el proyecto de ingenieria", 
+    "fecha" : "03/02/1233", 
+    "tamano" : "24 MB",
+    "contenido" : [
+        {
+            "nombre" : "public",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "css",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "estilos",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "bootstrap.min",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "img",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "img-01",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-02",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-03",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-04",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                    ]
+                },
+                {
+                    "nombre" : "js",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "controlador",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "jquery-3.3.1",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "index",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "login",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "principal", 
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "registro",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                }
+            ]
+        },
+        {
+            "nombre" : "index",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package-lock",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        }
+    ],
+    "usuario" : ObjectId("5ccb852674b526acc53679b4"),
+    "compartidos" : [
+        ObjectId("5ccb852674b526acc53679b4"),
+        ObjectId("5ccb852674b526acc53679b5")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb889b74b526acc53679be"),
+    "nombre" : "Economia Digital", 
+    "descripcion" : "Este es el proyecto de Economia Digital", 
+    "fecha" : "02/03/1998", 
+    "tamano" : "33 MB",
+    "contenido" : [
+        {
+            "nombre" : "public",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "css",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "estilos",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "bootstrap.min",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "img",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "img-01",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-02",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-03",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-04",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                    ]
+                },
+                {
+                    "nombre" : "js",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "controlador",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "jquery-3.3.1",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "index",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "login",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "principal", 
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "registro",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                }
+            ]
+        },
+        {
+            "nombre" : "index",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package-lock",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        }
+    ],
+    "usuario" : ObjectId("5ccb852674b526acc53679b4"),
+    "compartidos" : [
+        ObjectId("5ccb852674b526acc53679b4"),
+        ObjectId("5ccb852674b526acc53679b6"),
+        ObjectId("5ccb852674b526acc53679b7")
+    ]
+},
+{
+    "_id" : ObjectId("5ccb889b74b526acc53679bf"),
+    "nombre" : "POO", 
+    "descripcion" : "Este es el proyecto de POO", 
+    "fecha" : "09/09/1997", 
+    "tamano" : "400 MB",
+    "contenido" : [
+        {
+            "nombre" : "public",
+            "tipo" : "carpeta",
+            "extension" : "",
+            "contenido" : [
+                {
+                    "nombre" : "css",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "estilos",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "bootstrap.min",
+                            "tipo" : "archivo",
+                            "extension" : "css",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "img",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "img-01",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-02",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-03",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                        {
+                            "nombre" : "img-04",
+                            "tipo" : "archivo",
+                            "extension" : "jpg"
+                        },
+                    ]
+                },
+                {
+                    "nombre" : "js",
+                    "tipo" : "carpeta",
+                    "extension" : "",
+                    "contenido" : [
+                        {
+                            "nombre" : "controlador",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        },
+                        {
+                            "nombre" : "jquery-3.3.1",
+                            "tipo" : "archivo",
+                            "extension" : "js",
+                            "contenido" : ""
+                        }
+                    ]
+                },
+                {
+                    "nombre" : "index",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "login",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "principal", 
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                },
+                {
+                    "nombre" : "registro",
+                    "tipo" : "archivo",
+                    "extension" : "html",
+                    "contenido" : ""
+                }
+            ]
+        },
+        {
+            "nombre" : "index",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package-lock",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        },
+        {
+            "nombre" : "package",
+            "tipo" : "archivo",
+            "extension" : "js",
+            "contenido" : ""
+        }
+    ],
+    "usuario" : ObjectId("5ccb852674b526acc53679b7"),
+    "compartidos" : [
+        ObjectId("5ccb852674b526acc53679b7"),
+        ObjectId("5ccb852674b526acc53679b6")
+    ]
+}
+]);
+
+
+
+
+
+////////////////////////////////Metodos
+
+///    
+usuario.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "proyectos", 
+                foreignField : "_id",
+                as : "proyectos"
+            }
+        },
+        {
+            $match:{
+                _id: mongoose.Types.ObjectId(req.params.id) 
+            }
+        },
+        {
+            $project:{proyectos:1}
+        }
+    ]).then(data=>{
+        res.send(data);
+    })
+    .catch(error=>{
+        res.send(error);
+    });
+
+db.usuarios.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "proyectos", 
+                foreignField : "_id",
+                as : "proyectos"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb852674b526acc53679b4")  
+            }
+        },
+        {
+            $project:{proyectos:1}
+        }
+    ]).pretty();
+
+db.proyectos.aggregate([
+        {
+            $lookup:{
+                from : "usuarios",
+                localField : "contenido", 
+                foreignField : "_id",
+                as : "Resultado"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb889b74b526acc53679bb")
+            }
+        },
+        {
+            $project:{Resultado:1}
+        }
+    ]).pretty();
+///
+var cruce = db.usuarios.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "proyectos", 
+                foreignField : "_id",
+                as : "proyectos"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb852674b526acc53679b4")  
+            }
+        },
+        {
+            $project:{proyectos:1}
+        }
+    ]).pretty();
+    //
+
+while (cruce.hasNext()) {          
+   print(tojson(cruce.next()));
+}
+/// cruce recursivo
+     db.proyectos.aggregate([
+         { 
+            $graphLookup :  { 
+                from :  "proyectos", 
+                startWith :  "$ nombre", 
+                connectFromField : "nombre", 
+                connectToField :  "nombre",
+                as : "test"
+            }
+
+        }
+     ]).pretty();
+
+//
+cruce 2 = while (cruce.hasNext()) {print(tojson(cruce.next()));}
+///
+
+usuario.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "_id", 
+                foreignField : "compartidos",
+                as : "resultado"
+            }
+        },
+        {
+            $match:{
+                _id: mongoose.Types.ObjectId(req.params.id) 
+            }
+        },
+        {
+            $project:{resultado:1}
+        }
+    ]).then(data=>{
+        res.send(data);
+    })
+    .catch(error=>{
+        res.send(error);
+    });
+
+db.usuarios.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "_id", 
+                foreignField : "compartidos",
+                as : "resultado"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb852674b526acc53679b4")  
+            }
+        },
+        {
+            $project:{resultado:1}
+        }
+    ]).pretty();
+///
+
+
+
+db.usuarios.aggregate([
+        {
+            $lookup:{
+                from : "proyectos",
+                localField : "_id", 
+                foreignField : "contenido",
+                as : "resultado"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb852674b526acc53679b4")  
+            }
+        },
+        {
+            $project:{resultado:1}
+        }
+    ]).pretty();
+
+
+//
+usuario.aggregate([
+        {
+            $lookup:{
+                from : "membresias",
+                localField : "membresia", 
+                foreignField : "_id",
+                as : "membresia"
+            }
+        },
+        {
+            $match:{
+                _id: mongoose.Types.ObjectId(req.params.id) 
+            }
+        },
+        {
+            $project:{membresia:1}
+        }
+    ]).then(data=>{
+        res.send(data);
+    })
+    .catch(error=>{
+        res.send(error);
+    });
+
+db.usuarios.aggregate([
+        {
+            $lookup:{
+                from : "membresias",
+                localField : "membresia", 
+                foreignField : "_id",
+                as : "membresia"
+            }
+        },
+        {
+            $match:{
+                _id: ObjectId("5ccb852674b526acc53679b4")  
+            }
+        },
+        {
+            $project:{membresia:1}
+        }
+    ]).pretty();
+//
+
+
+db.proyectos.find({contenido: {$all:["nombre"]}).pretty();
+
+
+db.proyectos.remove({_id : ObjectId("5ccde08cbbff102778eb824b")});
+db.proyectos.update({},{$pull : { proyectos : { $in: [ObjectId("5ccde08cbbff102778eb824b")] } }});
+
+
+db.usuarios.update(
+        {
+            _id: ObjectId("5ccb852674b526acc53679b4")
+        },
+        {
+            $push:
+            {
+                proyectos: ObjectId("5ccde08cbbff102778eb824b")
+            }
+        })
+
+db.proyectos.update(
+        {
+            _id: 
+        },
+        {
+            $push:
+            {
+                compartidos: 
+            }
+        })

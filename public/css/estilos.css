@@ -1,0 +1,172 @@
+/*HOME.html*/
+
+@media only screen and (max-width: 600px) {
+    
+}
+
+.img-thumbnail{
+    max-width: 60px;
+    padding: 0.20rem;
+}
+.fl{
+    float: left;
+}  
+
+#principal-nav-sm {
+    background-color:rgb(0, 0, 0);
+    background-image: url(../img/img-01.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+    width: 100%; 
+    height: 100vh;
+}
+
+#principal-nav {
+    background-color:rgb(0, 0, 0);
+    background-image: url(../img/img-01.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+    width: 100%; 
+    height: 100vh;
+}
+
+/*
+#modA a {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #FFFFFF;
+}
+*/
+
+#principal-nav-img {
+    background-color:rgba(0, 0, 0, 0.65);
+    color:white;
+    position:absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0
+}
+#principal-body{
+    /*width: 321px;
+    background-color: #000000b3;
+    border-radius: 8px;
+    height: 500px;
+    padding: 40px 60px 40px 60px;
+    margin-left: auto;
+    margin-right: auto;
+    */
+    width: 400px;
+    height: 100px;
+
+    /*background-color: #000000b3;*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+#bodymain{
+    width: 100%; 
+    height: 100vh;
+}
+
+
+
+/*LOGIN.html*/
+#formulario-login{
+    /*width: 321px;
+    background-color: #000000b3;
+    border-radius: 8px;
+    height: 500px;
+    padding: 40px 60px 40px 60px;
+    margin-left: auto;
+    margin-right: auto;
+    */
+    width: 321px;
+    height: 550px;
+
+    /*background-color: #000000b3;*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+#formulario-login h1 {
+    /*font-family: FuenteExotica, 'Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #000000b3;
+}
+
+#body-login {
+    background-color:rgb(0, 0, 0);
+    background-image: url(../img/img-02.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+}
+#body-login-img {
+    background-color:rgba(0, 0, 0, 0.65);
+    color:white;
+    position:absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0
+}
+
+
+/*REGISTRO.html*/
+#formu-registro{
+    /*width: 321px;
+    background-color: #000000b3;
+    border-radius: 8px;
+    height: 500px;
+    padding: 40px 60px 40px 60px;
+    margin-left: auto;
+    margin-right: auto;
+    */
+    width: 321px;
+    height: 750px;
+
+    /*background-color: #000000b3;*/
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+#formu-registro h1 {
+    /*font-family: FuenteExotica, 'Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #000000b3;
+}
+
+#body-registro {
+    background-color:rgb(0, 0, 0);
+    background-image: url(../img/img-03.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+}
+#body-registro-img {
+    background-color:rgba(0, 0, 0, 0.65);
+    color:white;
+    position:absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0
+}
+
+
+
+/*INICIO.html*/
