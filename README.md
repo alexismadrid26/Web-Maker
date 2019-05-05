@@ -20,7 +20,7 @@ Ver archivo estructura-bd.js y ejecutar los comandos para crear la base y las co
 Ver archivo informacion-bd.js y ejecutar los comandos para llenar la base de datos
 
 Ejecutar proyecto en Visual Studio Code de preferencia con nodemon index.js ó node index.js
-Abrir en el navegador y escribir direccion https:://localhost:3333/index.html o https:://localhost:3333/
+Abrir en el navegador y escribir direccion https://localhost:3333/index.html o https://localhost:3333/
 
 Registrarse o probar con usuarios ya registrados: alexemadrid@hotmail.com  Clave: asd.123
                                                   teffyA@hotmail.com        Clave: asd.123
