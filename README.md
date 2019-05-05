@@ -7,7 +7,7 @@ Descargar repositorio de Github
 
 Tener instalado
 -Nodemon
--Parse body
+-body parser
 -npm
 -express
 -express-sesion
